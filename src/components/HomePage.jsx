@@ -1,20 +1,26 @@
 import React from 'react'
 import '../index.css'
+import { connect } from 'react-redux'
+import EmpShowClicked from './UI/combineRender/EmpShowClicked'
+import WelcomeScreen from './UI/combineRender/WelcomeScreen'
 
-import SideBar from './UI/sideBar/SideBar.jsx'
-import UsersContainer from './UI/empList/UsersContainer.jsx'
 
-function HomePage() {
-    return(
-        <div className="wrapper"> 
-            <div className="sideBar">
-                <SideBar />
-            </div>
-            <div className="empList" >
-                <UsersContainer />
-            </div>
-        </div>
-    )
+function HomePage({setScreen}) {
+    console.log("setScrren in Homepage :" +setScreen)
+    if(setScreen==='empShow')
+        return (
+            <EmpShowClicked />   
+        )
+    else  
+        return(
+            <WelcomeScreen /> 
+        )
 }
 
-export default HomePage;
+function mapStateToProps(state) {
+    return {
+        setScreen: state.setScreen.activeScreen
+    };
+}
+
+export default connect( mapStateToProps)(HomePage);

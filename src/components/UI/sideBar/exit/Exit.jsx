@@ -3,7 +3,7 @@ import { Fragment } from "react"
 function Exit() {
     return(
         <Fragment>
-            <button>Exit</button>
+            <button  className="sideBarButton">Exit</button>
         </Fragment>
     )
 }

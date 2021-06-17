@@ -1,7 +1,8 @@
 import {
     FETCH_USERS_REQUEST,
     FETCH_USERS_SUCCESS,
-    FETCH_USERS_FAILURE
+    FETCH_USERS_FAILURE,
+    ADD_USER,
   } from '../action/userTypes.jsx'
   
   const initialState = {
@@ -10,7 +11,7 @@ import {
     error: ''
   }
   
-  const reducer = (state = initialState, action) => {
+  const userReducer = (state = initialState, action) => {
     switch (action.type) {
       case FETCH_USERS_REQUEST:
         return {
@@ -29,9 +30,16 @@ import {
           users: [],
           error: action.payload
         }
+      case ADD_USER:
+        return {
+          loading: false,
+          users: state.users.concat(action.payload),
+          error:''
+        } 
+
       default: return state
     }
   }
   
-  export default reducer
+  export default userReducer;
   
