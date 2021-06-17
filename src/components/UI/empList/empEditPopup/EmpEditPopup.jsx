@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { setUpdatePopup } from '../../../../redux/action/setUpdatePopupAction'
 import { patchUserData } from '../../../../redux/action/userActions'
 
-function EmpEditPopup({setUpdatePopup, patchUserData, passId, fetchUser}) {
+function EmpEditPopup({setUpdatePopup, patchUserData, passId}) {
     const newEditUser={
         id: passId.passId,
         name:'',
